@@ -1,15 +1,11 @@
 <html>
 <body>
-  <h1> Events and ngFunctionalities</h1>
+  <h1> Events and ngFunctionalities </h1>
   <button [disabled]="b_disable"> Send </button>
   <button (click)="onClick()"> Activate </button>
-  <p> The name is: {{main_name}}</p>
+  <p [style.font-family]="main_name == 'BlackFire' ? 'Arial' : '-apple-system'"> The name is: {{main_name}}</p>
   <input type="text" max="10" required [(ngModel)]="main_name" #name_input="ngModel"/>
-  <p> Name validity : {{name_input.valid}} </p>
-  <p *ngIf="main_name == 'BlackFire'; else nameBlock"> WELCOME BLAKFIRE </p>
-  <ng-template #nameBlock>
-    <p> Welcome whoever you are</p>
-  </ng-template>
+  <p class="welcome-msj" *ngIf="main_name == 'BlackFire'"> WELCOME BLACKFIRE </p>
   <hr/>
 
   <h1> Hello World </h1>
@@ -33,7 +29,7 @@
   </ul>
   <hr/>
 
-  <h2> Some Wojaks </h2>
+  <h1 class="main-title" [class.blackfire]="main_name == 'BlackFire'"> Some Wojaks </h1>
   <div class="wojaks-grid">
     <div *ngFor="let jak of wojaks">
       <img [src]="jak.image" [alt]="jak.name">
